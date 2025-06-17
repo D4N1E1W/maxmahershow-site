@@ -4,81 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Max Maher</title>
-  <meta name="description" content="Business inquiries, partnerships, media requests — contact Max Maher directly via this form.">
-  <link rel="icon" href="https://yt3.googleusercontent.com/ytc/[REPLACE_WITH_MAX_FAVICON].png" />
+  <meta name="description" content="Submit a business proposal, media request, or collaboration idea to Max Maher." />
   <style>
-    :root {
-      --brand: #d1007c;
-      --bg: #f9f9f9;
-      --card: #ffffff;
-      --text: #1a1a1a;
-      --shadow: 0 16px 60px rgba(0,0,0,0.08);
-    }
-
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-    }
-
-    header {
-      text-align: center;
-      padding: 48px 20px 24px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.25rem;
-    }
-
-    header p {
-      font-size: 1rem;
-      max-width: 600px;
-      margin: 12px auto 0;
-      color: #555;
-    }
-
-    .form-container {
-      max-width: 740px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    iframe {
+      height: 100%;
       width: 100%;
-      min-height: 1400px;
-      border: none;
-      border-radius: 16px;
-      background: var(--card);
-      box-shadow: var(--shadow);
+      background: #0f0f11;
+      font-family: system-ui, sans-serif;
     }
 
-    footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #aaa;
-      margin: 80px 0 20px;
+    iframe.clickup-embed {
+      width: 100%;
+      height: 100vh;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      iframe.clickup-embed {
+        height: 1300px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Contact Max Maher</h1>
-    <p>For business proposals, media requests, or collaborations — use the form below. Every serious submission is reviewed, though not all will receive a reply.</p>
-  </header>
-
-  <div class="form-container">
-    <iframe class="clickup-embed clickup-dynamic-height"
-      src="https://forms.clickup.com/9014088717/f/8cmg50d-12514/RY4YCYHK7RD9TVGQYL"
-      loading="lazy"></iframe>
-  </div>
+  <iframe 
+    class="clickup-embed clickup-dynamic-height"
+    src="https://forms.clickup.com/9014088717/f/8cmg50d-12514/RY4YCYHK7RD9TVGQYL"
+    allow="clipboard-write"
+    title="Max Maher Contact Form"
+  ></iframe>
 
   <script async src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
-
-  <footer>
-    &copy; 2025 Max Maher
-  </footer>
 </body>
 </html>
