@@ -6,10 +6,9 @@
   <title>Collaborations – Max Maher</title>
   <meta name="description" content="Submit a business proposal, collaboration request, or media inquiry directly to Max Maher using this form." />
 
-  <!-- Preconnect to speed up critical origins -->
+  <!-- Perf hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://app-cdn.clickup.com" />
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
@@ -25,7 +24,7 @@
       font-family: 'Inter', sans-serif;
       background: var(--bg-gradient);
       color: white;
-      min-height: 100vh;
+      line-height: 1.5;
     }
 
     header.collab-header {
@@ -37,7 +36,7 @@
     }
     header.collab-header p {
       max-width: 640px; margin: 0 auto 1.5rem;
-      font-size: 1.1rem; opacity: .85; line-height: 1.6;
+      font-size: 1.1rem; opacity: .85;
     }
 
     .social-links {
@@ -55,12 +54,11 @@
     }
     .social-links svg { width: 24px; height: 24px; fill: white; }
 
-    /* Skeleton loader + overlay */
+    /* Loader + wrapper */
     .iframe-wrapper {
       position: relative;
-      width: 100vw;
-      height: calc(100vh - 280px);
-      overflow: hidden;
+      width: 100%;
+      min-height: calc(100vh - 280px);
       background: rgba(0,0,0,0.2);
     }
     .loader {
@@ -68,7 +66,6 @@
       transform: translate(-50%, -50%);
       display: flex; flex-direction: column; align-items: center;
       font-size: 1rem; color: white;
-      aria-live: polite;
     }
     .dot-spinner {
       width: var(--loader-size);
@@ -81,9 +78,8 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Hide iframe until it’s fully ready, then fade in */
     iframe.clickup-embed {
-      width: 100%; height: 100%;
+      width: 100%;
       border: none;
       visibility: hidden;
       opacity: 0;
@@ -96,7 +92,6 @@
 
     @media (max-width: 768px) {
       header.collab-header h1 { font-size: 2rem; }
-      .iframe-wrapper { height: 1300px; }
     }
   </style>
 </head>
@@ -106,15 +101,27 @@
     <h1>Collaborate with Max Maher</h1>
     <p>We review every submission. If it’s a great fit, you’ll hear from the right person on our team.</p>
     <div class="social-links">
-      <!-- SVG icons omitted for brevity; same as before -->
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/c/MaxMaher" target="_blank" aria-label="YouTube">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M19.615 3.184c-3.604-.246-11.631-.245-15.23..."/></svg>
+      </a>
+      <!-- X -->
+      <a href="https://x.com/maxwell_maher" target="_blank" aria-label="X">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M18.244 2.25h3.308l-7.227..."/></svg>
+      </a>
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/maxwell_maher" target="_blank" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M12 2.163c3.204 0 3.584..."/></svg>
+      </a>
     </div>
   </header>
 
-  <div class="iframe-wrapper" role="region" aria-label="Collaboration form loading">
+  <div class="iframe-wrapper" role="region" aria-label="Loading collaboration form">
     <div class="loader" id="formLoader" role="status" aria-live="polite">
       <div class="dot-spinner" aria-hidden="true"></div>
       <div>Loading form…</div>
     </div>
+
     <iframe
       class="clickup-embed clickup-dynamic-height"
       src="https://forms.clickup.com/9014088717/f/8cmg50d-12514/RY4YCYHK7RD9TVGQYL"
@@ -125,7 +132,6 @@
     ></iframe>
   </div>
 
-  <!-- Defer non-critical script load until after HTML parsing -->
   <script defer src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -133,11 +139,11 @@
       const loader = document.getElementById('formLoader');
 
       iframe.addEventListener('load', () => {
-        loader.remove();                     // remove spinner
-        iframe.classList.add('visible');    // fade in form
+        loader.remove();
+        iframe.classList.add('visible');
       });
 
-      // Fallback: remove loader after 10s even if load event doesn’t fire
+      // Fallback in case load never fires
       setTimeout(() => {
         if (!iframe.classList.contains('visible')) {
           loader.remove();
