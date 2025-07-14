@@ -3,142 +3,292 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Collaborations – Max Maher</title>
+  <title>Collaborate with Max Maher</title>
   <meta name="description" content="Submit a business proposal, collaboration request, or media inquiry directly to Max Maher using this form." />
+  <meta name="keywords" content="Max Maher, collaboration, business proposal, media inquiry, YouTube, finance, crypto" />
+  <meta property="og:title" content="Collaborate with Max Maher" />
+  <meta property="og:description" content="We review every submission. If it’s a great fit, you’ll hear from the right person on our team." />
+  <meta property="og:image" content="https://maxmahershow.com/og-image.jpg" /> <!-- Placeholder; replace with actual OG image URL -->
+  <meta property="og:url" content="https://maxmahershow.com/collaborations" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Performance hints -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://app-cdn.clickup.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://app-cdn.clickup.com" crossorigin />
+  <link rel="dns-prefetch" href="https://app-cdn.clickup.com" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Favicon and icons -->
+  <link rel="icon" href="https://maxmahershow.com/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://maxmahershow.com/apple-touch-icon.png" />
+  <link rel="manifest" href="https://maxmahershow.com/site.webmanifest" />
 
   <style>
     :root {
       --bg-gradient: linear-gradient(135deg, #1c1c3a, #3d348b, #6247aa);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.85);
+      --accent-color: #ffffff;
       --loader-size: 48px;
       --loader-border: 6px;
+      --transition-speed: 0.3s;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
-    *, *::before, *::after { box-sizing: border-box; }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
     html, body {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       font-family: 'Inter', sans-serif;
       background: var(--bg-gradient);
-      color: white;
-      line-height: 1.5;
+      color: var(--text-primary);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header.collab-header {
       text-align: center;
-      padding: 3rem 1rem 2rem;
+      padding: 4rem 1rem 3rem;
+      animation: fadeIn 1s ease-out;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     header.collab-header h1 {
-      font-size: 2.8rem; font-weight: 700; margin-bottom: .5rem;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
     }
+
     header.collab-header p {
-      max-width: 640px; margin: 0 auto 1.5rem;
-      font-size: 1.1rem; opacity: .85;
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      color: var(--text-secondary);
     }
 
     .social-links {
-      display: flex; justify-content: center; gap: 1.5rem;
-    }
-    .social-links a {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: rgba(255,255,255,0.1); display: flex;
-      align-items: center; justify-content: center;
-      transition: transform .3s, background-color .3s;
-    }
-    .social-links a:hover {
-      background: rgba(255,255,255,0.2);
-      transform: scale(1.1);
-    }
-    .social-links svg {
-      width: 24px; height: 24px; fill: white;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
 
-    /* Loader + wrapper */
+    .social-links a {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--transition-speed), background-color var(--transition-speed), box-shadow var(--transition-speed);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .social-links a:hover,
+    .social-links a:focus {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: var(--shadow-md);
+    }
+
+    .social-links svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--accent-color);
+      transition: fill var(--transition-speed);
+    }
+
+    .social-links a:hover svg,
+    .social-links a:focus svg {
+      fill: var(--text-primary);
+    }
+
+    /* Iframe wrapper */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 1rem;
+    }
+
     .iframe-wrapper {
       position: relative;
       width: 100%;
-      min-height: calc(100vh - 280px);
-      background: rgba(0,0,0,0.2);
+      max-width: 800px;
+      min-height: 600px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: box-shadow var(--transition-speed);
     }
+
+    .iframe-wrapper:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
     .loader {
-      position: absolute; top: 50%; left: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
-      display: flex; flex-direction: column; align-items: center;
-      font-size: 1rem; color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      transition: opacity var(--transition-speed);
     }
+
     .dot-spinner {
       width: var(--loader-size);
       height: var(--loader-size);
       border-radius: 50%;
-      border: var(--loader-border) solid rgba(255,255,255,0.3);
-      border-top-color: white;
-      animation: spin .8s linear infinite;
-      margin-bottom: .75rem;
+      border: var(--loader-border) solid rgba(255, 255, 255, 0.3);
+      border-top-color: var(--text-primary);
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1rem;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
 
     iframe.clickup-embed {
       width: 100%;
+      height: 100%;
+      min-height: 600px;
       border: none;
       visibility: hidden;
       opacity: 0;
-      transition: opacity .4s ease-in;
+      transition: opacity 0.4s ease-in, visibility 0.4s;
     }
+
     iframe.clickup-embed.visible {
       visibility: visible;
       opacity: 1;
     }
 
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    footer a {
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+
+    footer a:hover,
+    footer a:focus {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    /* Responsiveness */
     @media (max-width: 768px) {
-      header.collab-header h1 { font-size: 2rem; }
+      header.collab-header {
+        padding: 3rem 1rem 2rem;
+      }
+
+      .iframe-wrapper {
+        border-radius: 12px;
+        min-height: 500px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+
+    /* Accessibility: High contrast mode (example) */
+    @media (prefers-contrast: more) {
+      :root {
+        --text-primary: #ffffff;
+        --text-secondary: #ffffff;
+        --bg-gradient: linear-gradient(135deg, #000000, #333333, #666666);
+      }
+
+      .social-links a {
+        border: 2px solid #ffffff;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header class="collab-header">
-    <h1>Collaborate with Max Maher</h1>
+  <header class="collab-header" role="banner">
+    <h1 id="main-title">Collaborate with Max Maher</h1>
     <p>We review every submission. If it’s a great fit, you’ll hear from the right person on our team.</p>
-    <div class="social-links">
-      <!-- YouTube -->
-      <a href="https://www.youtube.com/c/MaxMaher" target="_blank" aria-label="YouTube">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path fill="white" d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 3.993L9 16z"/>
+    <nav class="social-links" aria-label="Social media links">
+      <a href="https://www.youtube.com/c/MaxMaher" target="_blank" rel="noopener noreferrer" aria-label="Visit Max Maher on YouTube">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 3.993L9 16z"/>
         </svg>
       </a>
-      <!-- X -->
-      <a href="https://x.com/maxwell_maher" target="_blank" aria-label="X">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path fill="white" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      <a href="https://x.com/maxwell_maher" target="_blank" rel="noopener noreferrer" aria-label="Visit Max Maher on X (formerly Twitter)">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
         </svg>
       </a>
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/maxwell_maher" target="_blank" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path fill="white" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+      <a href="https://www.instagram.com/maxwell_maher" target="_blank" rel="noopener noreferrer" aria-label="Visit Max Maher on Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
         </svg>
       </a>
-    </div>
+    </nav>
   </header>
 
-  <div class="iframe-wrapper" role="region" aria-label="Loading collaboration form">
-    <div class="loader" id="formLoader" role="status" aria-live="polite">
-      <div class="dot-spinner" aria-hidden="true"></div>
-      <div>Loading form…</div>
-    </div>
+  <main role="main">
+    <div class="iframe-wrapper" role="region" aria-label="Collaboration form">
+      <div class="loader" id="formLoader" role="status" aria-live="polite">
+        <div class="dot-spinner" aria-hidden="true"></div>
+        <span>Loading form…</span>
+      </div>
 
-    <iframe
-      class="clickup-embed clickup-dynamic-height"
-      src="https://forms.clickup.com/9014088717/f/8cmg50d-12514/RY4YCYHK7RD9TVGQYL"
-      title="Max Maher Collaborations"
-      allow="clipboard-write"
-      loading="eager"
-      fetchpriority="high"
-    ></iframe>
-  </div>
+      <iframe
+        class="clickup-embed clickup-dynamic-height"
+        src="https://forms.clickup.com/9014088717/f/8cmg50d-12514/RY4YCYHK7RD9TVGQYL"
+        title="Max Maher Collaboration Submission Form"
+        allow="clipboard-write"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2025 Max Maher. All rights reserved. | <a href="https://maxmahershow.com/privacy" rel="noopener noreferrer">Privacy Policy</a> | <a href="https://maxmahershow.com/terms" rel="noopener noreferrer">Terms of Service</a></p>
+  </footer>
 
   <script defer src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
   <script>
@@ -146,18 +296,27 @@
       const iframe = document.querySelector('.clickup-embed');
       const loader = document.getElementById('formLoader');
 
-      iframe.addEventListener('load', () => {
-        loader.remove();
+      const handleLoad = () => {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.remove(), 300);
         iframe.classList.add('visible');
-      });
+      };
 
-      // Fallback: remove loader after 10s even if load event doesn’t fire
+      iframe.addEventListener('load', handleLoad);
+
+      // Fallback: remove loader after 10s
       setTimeout(() => {
         if (!iframe.classList.contains('visible')) {
-          loader.remove();
-          iframe.classList.add('visible');
+          handleLoad();
         }
       }, 10000);
+
+      // Dynamic iframe height adjustment if supported by embed
+      window.addEventListener('message', (event) => {
+        if (event.origin === 'https://forms.clickup.com' && event.data.type === 'resize') {
+          iframe.style.height = `${event.data.height}px`;
+        }
+      });
     });
   </script>
 </body>
